@@ -43,7 +43,7 @@ A completed example is in `examples/testcube-for-edit.dae`.
 8. Make sure only your base mesh is selected then click `File -> Export -> Collada`, choosing "sl + opensim rigged"
    under "Operator Presets" and save.
 9. Import to SL with rigging + joint positions
-10. Upload one of the morphing animations and play it with an animesh script.
+10. Upload one of the morphing animations in the `animations` directory and play it with an animesh script.
 
 # How does it work
 
