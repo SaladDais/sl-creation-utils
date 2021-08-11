@@ -35,7 +35,7 @@ A completed example is in `examples/testcube-for-edit.dae`.
 4. * Optionally, to preview how the morph will look, shift-select the morphed object then the original
    * Go to Object Data -> Shape Keys -> Shape Key Specials -> Join as Shapes
    * Click the added shape key and drag the value slider around to see how the morph will look.
-     Make sure you set the slider back to `0` when you're done.
+     Make sure you remove the shape keys when you're done previewing or you won't be able to sculpt again.
 5. Shift-select the morphed object, then the original, and go into Weight Paint mode
 6. Click `Weights -> Morph Target to SL Weights`. Your object will be automatically weight painted
    and vertex groups will be added for the control joints that morph target animation uses.
