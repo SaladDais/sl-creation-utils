@@ -10,11 +10,14 @@ allows you to sculpt another version of the object and morph between the basis s
 and the deformed state. If you just need animesh to semi-linearly morph between two arbitrary
 states then this might be useful to you.
 
+If you keyframe and script carefully, you can use morph target animation to keyframe many
+soft-body physics simulations, or many other morphs that don't add or remove tris.
+
 # Caveats
 
-* Only one morph target per mesh because of how it works
+* Only one morph target per face because of how it works
 * * Morph target is essentially baked into the weights!
-* * Might be able to do more by alpha flipping faces.
+* * Can do more by alpha flipping faces, at the cost of higher LI.
 * Normals will not morph, so shading may be slightly off for major deforms
 * * Might be able to work around this with `llTextureAnim()` + normal map to offset wrong normals
 * Wouldn't work well for rigged attachments unless they were meant to be hands or a head.
@@ -23,7 +26,7 @@ states then this might be useful to you.
 * Not useful for clothing deforms as proposed in <http://wiki.secondlife.com/wiki/Morph_Target_Community_Proposal>.
 * Not well-supported, annoying to make animations for.
 
-# Instructions
+# Simple Instructions
 
 This is for plain Blender 2.9 without Avastar. I don't know if it works with Avastar.
 A completed example is in `examples/testcube-for-edit.dae`.
@@ -35,7 +38,7 @@ A completed example is in `examples/testcube-for-edit.dae`.
 4. * Optionally, to preview how the morph will look, shift-select the morphed object then the original
    * Go to Object Data -> Shape Keys -> Shape Key Specials -> Join as Shapes
    * Click the added shape key and drag the value slider around to see how the morph will look.
-     Make sure you remove the shape keys when you're done previewing or you won't be able to sculpt again.
+     Make sure you remove the shape keys when you're done previewing, or you won't be able to sculpt again.
 5. Shift-select the morphed object, then the original, and go into Weight Paint mode
 6. Click `Weights -> Morph Target to SL Weights`. Your object will be automatically weight painted
    and vertex groups will be added for the control joints that morph target animation uses.
@@ -56,6 +59,28 @@ the vertices into their final position.
 For example, any vertex that needs to move along +X will be weighted to mHipLeft, and its
 animations will only move it along +X. Once mHipLeft reaches `<5, 0, 0>` the object will be
 fully morphed along the +X axis.
+
+# Multi-frame animations
+
+There's rudimentary support for chaining morph target animations by face flipping.
+
+`examples/testsphere-animation-for-edit.dae` and `examples/testsphere-animation-loop.lsl` are
+an example of how an object with a looping set of morph target animations could be done.
+
+The creation flow is similar to the simple version, except:
+
+* A group of objects whose count is divisible by three must be selected because it works
+  on groups of three objects
+* The last object of each group and the first object of the next must match exactly for the morph
+  to transition between sets correctly.
+* Each object must have a unique material on it, so it will get a unique face when joined
+* You must name the objects and materials numerically in ascending order by keyframe
+* Select `Object > SL Morph Target Animation from Nodes` in Object Mode rather than
+  go into Weight Paint mode
+* A merged object will be created at the origin that you can parent to the `morph-target-armature.dae`
+* Export and import as in the simple instructions.
+
+Better instructions later, refer to the example Collada.
 
 # Creating animations to control morphing
 
