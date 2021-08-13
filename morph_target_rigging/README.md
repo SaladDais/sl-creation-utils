@@ -17,6 +17,7 @@ soft-body physics simulations, or many other morphs that don't add or remove tri
 
 * Only one morph target per face because of how it works
 * * Morph target is essentially baked into the weights!
+* * Means no mixing morph targets
 * * Can do more by alpha flipping faces, at the cost of higher LI.
 * Normals will not morph, so shading may be slightly off for major deforms
 * * Might be able to work around this with `llTextureAnim()` + normal map to offset wrong normals
