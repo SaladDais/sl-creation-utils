@@ -266,6 +266,7 @@ def enum_previews_image_items(self, context):
 
     for i, img in enumerate(bpy.data.images.values()):
         name = img.name
+        img.preview_ensure()
         thumb = img.preview
         enum_items.append((name, name, "", thumb.icon_id, i))
 
