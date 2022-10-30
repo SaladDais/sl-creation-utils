@@ -19,13 +19,13 @@
         <node id="MorphTargetArmature_mPelvis" name="mPelvis" sid="mPelvis" type="JOINT">
           <matrix sid="transform">1 0 0 0 0 0 -1 0 0 1 0 0 0 0 0 1</matrix>
           <node id="MorphTargetArmature_mTail1" name="mTail1" sid="mTail1" type="JOINT">
-            <matrix sid="transform">1 0 -8.74228e-8 0 0 -1 0 5e-4 -8.74228e-8 0 -1 0 0 0 0 1</matrix>
+            <matrix sid="transform">1 0 0 0 0 1 0 10e-5 0 0 1 0 0 0 0 1</matrix>
             <extra>
               <technique profile="blender">
                 <layer sid="layer" type="string">0</layer>
                 <tip_x sid="tip_x" type="float">0</tip_x>
                 <tip_y sid="tip_y" type="float">0</tip_y>
-                <tip_z sid="tip_z" type="float">-4e-4</tip_z>
+                <tip_z sid="tip_z" type="float">10e-5</tip_z>
               </technique>
             </extra>
           </node>
@@ -74,6 +74,17 @@
             </extra>
           </node>
           <node id="MorphTargetArmature_mHindLimb1Right" name="mHindLimb1Right" sid="mHindLimb1Right" type="JOINT">
+            <matrix sid="transform">1 0 0 0 0 1 0 10e-5 0 0 1 0 0 0 0 1</matrix>
+            <extra>
+              <technique profile="blender">
+                <layer sid="layer" type="string">0</layer>
+                <tip_x sid="tip_x" type="float">0</tip_x>
+                <tip_y sid="tip_y" type="float">0</tip_y>
+                <tip_z sid="tip_z" type="float">10e-5</tip_z>
+              </technique>
+            </extra>
+          </node>
+          <node id="MorphTargetArmature_mHindLimbsRoot" name="mHindLimbsRoot" sid="mHindLimbsRoot" type="JOINT">
             <matrix sid="transform">1 0 0 0 0 1 0 10e-5 0 0 1 0 0 0 0 1</matrix>
             <extra>
               <technique profile="blender">
